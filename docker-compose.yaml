@@ -1,0 +1,14 @@
+version: "3"
+services: 
+  client:
+    build:
+      dockerfile: dockerfile
+      context: ./client
+
+
+  server:
+    build: 
+      dockerfile: dockerfile
+      context: ./server
+
+  
