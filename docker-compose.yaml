@@ -1,14 +1,14 @@
-version: "3"
-services: 
+version: '3'
+
+services:
   client:
-    build:
-      dockerfile: dockerfile
-      context: ./client
-
-
+    build: ./client
+    ports:
+      - '3000:3000'
+    depends_on:
+      - server
+      
   server:
-    build: 
-      dockerfile: dockerfile
-      context: ./server
-
-  
+    build: ./server
+    ports:
+      - '5000:5000'

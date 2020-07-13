@@ -55,7 +55,6 @@ app.post("/api/users/register", (req, res) => {
   //req.body 안에는 json 형식으로 들어있다.
   const user = new User(req.body);
 
-  
   //save는 몽고db에서 오는 메소드
   user.save((err, userInfo) => {
     if (err) return res.json({ success: false, err });
@@ -91,9 +90,9 @@ app.post("/api/users/login", (req, res) => {
           .cookie("x_auth", user.token)
           .status(200) //성공했다는 표시
           .json({ loginSuccess: true, userId: user._id });
-      });                               //userId가 리덕스 스토어에 들어왔음
-    });                                 //payload를 통해서 payload에는 request가 들어가 있음
-  });                                   //requset는 백엔드에서 가져온 모든 data를 가지고 있다.
+      }); //userId가 리덕스 스토어에 들어왔음
+    }); //payload를 통해서 payload에는 request가 들어가 있음
+  }); //requset는 백엔드에서 가져온 모든 data를 가지고 있다.
 });
 
 // role 0 -> 일반유저 role이 0이 아니면 관리자

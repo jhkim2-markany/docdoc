@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 
 //bcrypt 암호화
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10; //salt의 만들떄 10자리인 salt를 만듬
 
 //토큰 모듈 불러오기

@@ -1,17 +1,14 @@
-# 노드가 담긴 alpine 이미지 가져오기
-FROM node:10.15-alpine
+# build environment
+FROM node:12.2.0-alpine as build
+WORKDIR /app/client
+ENV PATH /app/client/node_modules/.bin:$PATH
+COPY package*.json ./
+RUN npm ci -qy
+RUN npm install --silent
+RUN npm install react-scripts@3.0.1 -g --silent
 
-# app 디렉토리 생성
-RUN mkdir -p /app
-
-#Docker 이미지 내부에서 RUN, CMD, ENTRYPOINT의 명령이 실행될 디렉터리를 설정합니다.
-WORKDIR /app
-
-# 현재 디렉터리에 있는 파일들을 이미지 내부 /app 디렉터리에 추가함
-ADD     . /app
-
-# // 소스 복사 
 COPY . .
 
-# //client 소스 실행
-CMD ["npm","run","start"]
+EXPOSE 3000
+
+CMD [ "npm","start" ]
