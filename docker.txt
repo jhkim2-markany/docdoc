@@ -172,13 +172,7 @@ docker run -it -p 3000:3002 --rm survey
 
 
 
-
-
---------------------------------------------------------------------
-
-docker-compose up --build
-
-
+----------------------------------------------------------------
 
 docker ps -a
 
@@ -187,4 +181,17 @@ docker rm <이름>
 docker images 
 
 docker rmi <이미지>
+
+--------------------------------------------------------------------
+
+docker-compose up --build
+// 지금은 server 밖에 안켜짐! 나중에 compose 수정해야함
+
+일단
+docker-compose start
+실행하고하고
+
+docker images로 이미지를 확인하고 
+                                  <클라이언트 이미지>
+docker run -it -p 3000:3000 --rm <이미지>
 
