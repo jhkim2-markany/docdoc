@@ -163,7 +163,7 @@ docker-machine ip default로 확인 할 수 있다.
 
 도커 컨테이너로 열꺼면 이게 필요하다
 192.168.99.100
-
+doc
 
 docker build -t survey .
 
@@ -172,7 +172,13 @@ docker run -it -p 3000:3002 --rm survey
 
 
 
-----------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+
+docker-compose up --build
+
+
 
 docker ps -a
 
@@ -182,16 +188,127 @@ docker images
 
 docker rmi <이미지>
 
---------------------------------------------------------------------
+
+
+
+-d 는 백그라운드 실행 
+
+-------------------------------.
 
 docker-compose up --build
-// 지금은 server 밖에 안켜짐! 나중에 compose 수정해야함
 
-일단
-docker-compose start
-실행하고하고
+					클라이언트
+docker run -d -it -p 80:3000 --rm <이미지>
 
-docker images로 이미지를 확인하고 
-                                  <클라이언트 이미지>
-docker run -it -p 3000:3000 --rm <이미지>
+					서버
+docker run -d -it -p 5000:5000 --rm <이미지>
 
+
+
+
+-----------------------------------
+
+http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter08/01/03
+
+개발자 pc에서 dockerfile 작성하기
+
+
+
+
+
+EXPOSE
+http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter07/07
+
+
+
+ADD
+http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter07/09
+
+
+
+COPY
+http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter07/10
+
+
+
+
+
+VOLUME
+http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter07/11
+
+
+
+
+WORKDIR
+http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter07/13
+
+
+명령어!
+https://nirsa.tistory.com/80
+
+
+도커 link db할떄 필요할듯?
+https://hoony-gunputer.tistory.com/entry/docker-compose-yaml-%ED%8C%8C%EC%9D%BC-%EC%9E%91%EC%84%B1
+
+서버 ATTACK로 들어가보기
+
+
+
+
+https://galid1.tistory.com/324
+
+
+도커 이미지 이름변경하는 법 
+
+docker tag <레포지토리>:<태그> <바꿀 레포지토리>:<태그>
+
+단 도커허브에 올리기위해서는  <유저아이디/레파지토리이름>:<태그> 로 해야함
+					태그로 구분지어야함. ex)server, client
+
+
+
+https://stackoverflow.com/questions/29956500/docker-public-registry-push-fails-repository-does-not-exist/37036348
+
+
+도커 한번 해봐
+
+
+https://knight76.tistory.com/entry/docker-docker-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%82%AD%EC%A0%9C
+
+
+
+
+
+https://techexpert.tips/ko/%EB%8F%84%EC%BB%A4-%EA%B2%83/docker-%EC%9E%90%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A5%BC-%EC%82%AD%EC%A0%9C%ED%95%A0-%EC%88%98-%EC%97%86%EC%9D%8C/
+
+
+
+
+docker pull
+
+docker pull enddl0121/docker-plate:1st 
+
+
+https://hub.docker.com/repository/docker/enddl0121/docker-plate/tags?page=1
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------...
+
+
+http://blog.naver.com/PostView.nhn?blogId=alice_k106&logNo=220340499760
+
+
+https://zzsza.github.io/development/2018/04/17/docker-kubernetes/
+
+
+
+
+
+https://ooeunz.tistory.com/69?category=821628

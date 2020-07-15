@@ -130,4 +130,5 @@ app.get("/api/users/logout", auth, (req, res) => {
   );
 });
 
-app.listen(port, () => console.log(`on port http://localhost:${port}/`));
+const ip = require("ip");
+app.listen(port, () => console.log(`on port http://${ip.address()}:${port}/`));
